@@ -1,0 +1,92 @@
+# @ahthor：	zhubingbing
+# @date：		2019-01-19
+# @description: 构建yfwy项目
+# @param1		项名名称
+
+#当前目录
+CURRENT_DIR="$PWD"
+CODE_DIR=$CURRENT_DIR/code
+
+#账户密码
+USERNAME_CODE=zhubingbing
+PASSWORD_CODE=ZHUbingbing123
+URL_CODE=http://47.110.134.252:18080/svn/net.lvnao/yfwy/trunk/
+
+#获取项目源码
+svn checkout $URL_CODE $CODE_DIR --username $USERNAME_CODE --password $PASSWORD_CODE --no-auth-cache
+
+#获取项目名称(当前目录名称)
+project_name=$(cd $(dirname $0);pwd)
+LOGPATH=~/logs/$project_name
+
+echo --------------------------------------------
+echo JAVA_HOME=$JAVA_HOME
+echo param1 = $1
+echo APPSPACE_ROOT= $APPSPACE_ROOT
+echo APPSPACE = $APPSPACE
+echo APPWORK_ROOT=$APPWORK_ROOT
+echo APPWORK=$APPWORK
+echo --------------------------------------------
+
+
+cd $CODE_DIR/script_dir
+echo 正在清理MAVEN构建输出
+mvn clean
+echo MAVEN输出清理成功
+
+# echo 正在清理布署目录 $APPWORK
+# rm -rf $APPWORK
+# echo 清理完毕.
+
+
+echo 正在MAVEN构建输出
+mvn install -Denforcer.skip=true -Dmaven.test.skip=true -U -Dfile.encoding=UTF-8 -Dconsole.encoding=UTF-8
+echo MAVEN构建成功
+
+
+if [ ! -f $JAR ];then
+   echo "$JAR 不存在，正在搜索WAR包..."
+   JAR=$APPWORK_DIR/$PROJECT.war
+fi
+
+if [ ! -f $JAR ]; then
+   echo "$JAR 不存在，请确认是否编译成功，并成功布署."
+   exit 0;
+fi
+
+if [ -f $DEPLOY_CONFIG ]; then
+   echo "读取应用自定义布署配置文件- $DEPLOY_CONFIG "
+   source $DEPLOY_CONFIG
+fi   
+
+#初始化日志目录
+if [ ! -d $LOGPATH ]; then
+   echo "正在创建日志目录${LOGPATH}"
+   mkdir -p $LOGPATH
+fi
+
+APPWORK_DIR=~/apps/$PROJECT
+LOGPATH=~/logs/$1
+STARTUPLOG=~/logs/$1/startup.log
+EM_OPTIS="-Xms64m -Xmx128m -Xss128k"
+JAVA_OPTIS=" -Dspring.profiles.active=$SPRING_PROFILE "
+JAR=$APPWORK_DIR/$1.jar
+DEPLOY_CONFIG=$APPWORK_DIR/deploy.conf
+PIDFILE=$APPWORK_DIR/$1.pid
+
+
+
+echo "正在执行 java -jar $MEM_OPTIS $JAVA_OPTIS $ADD_VM_ARGS $JAR $STARTUP_ARGS >$STARTUPLOG &"    
+nohup java -jar $MEM_OPTIS $JAVA_OPTIS $ADD_VM_ARGS $JAR $STARTUP_ARGS >$STARTUPLOG &
+RESULT=$?
+PID=$!
+if [ $RESULT = 0 ]; then
+    echo  "start $JAR successed PID=$PID ."
+    echo  $PID >$PIDFILE
+    sleep 3      
+    tail -300 $STARTUPLOG
+else
+    echo "start failed..."
+fi
+
+cd $CURRENT_DIR

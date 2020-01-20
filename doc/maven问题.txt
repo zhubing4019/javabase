@@ -1,0 +1,36 @@
+
+
+
+
+
+本地安装：
+install:install-file -Dfile=D:\workzbb\fanganan\faa-common\faa-common-core\target\faa-common-core.jar -DgroupId=net.lvnao -DartifactId=faa-common-core -Dversion=1.0.0 -Dpackaging=jar -DgeneratePom=true
+install:install-file -Dfile=D:\workzbb\fanganan\faa-mis\pom.xml -DgroupId=net.lvnao -DartifactId=faa -Dversion=1.0.0 -Dpackaging=pom
+
+发布maven服务器：
+mvn deploy:deploy-file -DgroupId=net.lvnao -DartifactId=faa-common-core -Dversion=1.0.0 -Dpackaging=jar -Dfile=D:\workzbb\fanganan\faa-common\faa-common-core\target\faa-common-core.jar -Durl=http://localhost:8081/repository/maven-releases/ -DrepositoryId=maven-releases
+
+发布maven服务器配置：
+<distributionManagement>
+		<repository>
+			<id>maven-releases</id>
+			<name>maven-releases</name>
+			<url>http://localhost:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>maven-snapshots</id>
+			<name>nexus Repository SNAPSHOTS</name>
+			<url>http://localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+注意：releases 配置需要改为可重复发包模式；
+
+
+busy-wait
+lock-free
+wait-free
+
+
+
+

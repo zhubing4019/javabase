@@ -1,0 +1,33 @@
+
+	 IDEA中的Version Control问题 
+	https://blog.csdn.net/wang124454731/article/details/79206027
+
+
+
+	自动导入
+	设置： settings -》 auto import	
+
+
+	热部署：Jrebel  https://www.cnblogs.com/a8457013/p/7866625.html
+	Jrebel激活
+	服务器地址：https://jrebel.qekang.com/{GUID}
+	GUID地址： https://www.guidgen.com/
+	
+	自动编译：  https://blog.csdn.net/diaomeng11/article/details/73826564
+	1、IDEA开启项目自动编译，进入设置，Build,Execut, Deployment -> Compiler 勾选中左侧的Build Project automatically
+	2、IDEA开启项目运行时自动make, ctrl + shift + /搜索命令：registry -> 勾选compiler.automake.allow.when.app.running
+
+
+	
+	-XX:+PrintGCDetails
+	
+	merchant_info
+	
+	
+	
+	
+	
+	0.0.0.0 account.jetbrains.com
+
+	
+	

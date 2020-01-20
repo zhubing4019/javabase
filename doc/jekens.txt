@@ -1,0 +1,13 @@
+
+
+zhubingbing
+546SdfSSS444
+
+
+
+
+java -jar -Xms256m -Xmx256m -Xss256k  -Dspring.profiles.active=test   /root/apps/yfwy-manage/yfwy-manage.jar  >/root/logs/yfwy-manage/startup.log &
+
+java -jar -Xms256m -Xmx256m -Xss256k
+
+

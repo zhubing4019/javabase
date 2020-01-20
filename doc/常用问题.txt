@@ -1,0 +1,129 @@
+
+1、系统账户
+
+2、商户系统  是否进入系统--  系统账户Id（关联）
+
+3、验房机构， 是否进入系统--  系统账户Id（关联）
+social_credit      统一社会信用代码
+contacter_name   联系人
+contacter_mobile  联系电话
+address  办公地址
+user_name  账户名称
+30
+img：
+img_bus_license 营业执照
+img_inspection_cer 检验检测机构资质认定证书
+img_quality_insp_cer 工程质量检测机构资质证书
+
+
+
+
+4、验房师
+手机号
+
+
+5、商户表
+验房状态通知接口 - 回调通知
+指派和变更验房师通知接口 - 回调通知
+
+6、楼盘信息表
+系统中没有楼盘 新增页面
+
+7、楼盘绑定
+楼盘绑定信息表
+
+
+
+8、 预约分配  验房工单表
+变更为--验房变更历史记录
+
+
+业务需求
+1.超时回收
+2.验房码
+
+
+WAITING：待指派；WAIT_INSPECTION_ROOM：已分配，待验房；CANCEL：取消验房FINISH：验房完成；
+
+状态  WAIT_INSPECTOR 已分配机构,待分配验房师; WAIT_INSPECTION_ROOM:已分配验房师,待验房; CANCEL:取消验房; DOING_INSPECTION 验房中; FINISH:验房完成; FAIL:验房失败;
+
+sys_user
+type  INSPECT_ORG INSPECTOR SYS
+
+ identity_img
+ person_img
+ certificate_img
+ 
+变更类型 APPOINT_TIME:预约时间; INSPECT_ORG:验房机构; INSPECTOR:验房师; 
+
+http://127.0.0.1/sys/generator/code?tables=base_provinces,base_areas,base_cities
+http://127.0.0.1/sys/generator/code?tables=appoint_record
+http://127.0.0.1/sys/generator/code?tables=inspect_org_info,inspector,merchant_info,project_config,appoint_modify_record,appoint_record,appoint_work_order
+
+1、验房机构 - 省市区、验房师数量
+2、系统用户名唯一性检测
+
+
+切面日志
+
+http://127.0.0.1:8080/yfwy-api/api/test
+
+o.s.s.concurrent.ThreadPoolTaskExecutor
+o.s.s.c.ThreadPoolTaskScheduler 
+
+1、可以在循环依赖的类上加@Lazy注解
+2、通过后置处理器设置allowRawInjectionDespiteWrapping=true
+
+
+http://198.162.0.165:8083/yfwt-manage/swagger-ui.html
+http://127.0.0.1:8083/yfwt-manage/swagger-ui.html
+
+tail: cannot open ‘/root/logs/eureka/eureka.log’ for reading: No such file or directory
+tail: no files remaining
+
+
+
+
+系统bug：
+1.创建远程调用异常，返回信息；
+2.登录后，返回详细信息；
+3.
+
+
+java -jar -Xms512m -Xmx512m -Xss256k  -Dspring.profiles.active=test    /root/apps/yfwy-manage/yfwy-manage.jar  &
+
+
+rem Java 11
+set JAVA_HOME=C:\Program Files\Java\jdk-11.0.2\bin
+set PATH=%JAVA_HOME%\bin;%PATH%
+
+ yfwy-service
+
+
+./checkout.sh http://47.110.134.252:18080/svn/net.lvnao/auth/ auth
+
+./checkout.sh http://47.110.134.252:18080/svn/net.lvnao/yfwy/trunk/yfwy-service/ yfwy-service
+
+./checkout.sh http://47.110.134.252:18080/svn/net.lvnao/yfwy/trunk/yfwy-manage/ yfwy-manage
+
+./checkout.sh http://47.110.134.252:18080/svn/net.lvnao/yfwy/trunk/yfwy-api/ yfwy-api
+
+
+./checkout.sh http://47.110.134.252:18080/svn/net.lvnao/fanganan/java/faa-mis/ faa-mis
+
+./checkout.sh http://47.110.134.252:18080/svn/net.lvnao/fanganan/java/faa-service/ faa-service
+
+java -jar   -Dspring.profiles.active=test   /root/apps/faa-mis/faa-mis.jar  >/root/logs/faa-mis/startup.log &
+
+java -jar -Xmx128m -Xms128m  -Dspring.profiles.active=test   /root/apps/route/route.war  >/root/logs/route/startup.log &
+
+
+
+
+sync
+　　然后执行下面命令释放内存(页缓存buff/cache)：
+
+echo 1 > /proc/sys/vm/drop_caches
+
+
+

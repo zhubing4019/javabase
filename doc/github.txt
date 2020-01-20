@@ -1,0 +1,10 @@
+
+
+
+账号密码：
+775170427@qq.com
+ZHUbingbing123
+
+ git config --global user.name "775170427@qq.com"  
+ git config --global user.email 775170427@qq.com  
+

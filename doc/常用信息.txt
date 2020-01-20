@@ -1,0 +1,73 @@
+
+工作邮箱
+zhubingbing@intelawfirm.com
+
+postman 
+775170427@qq.com
+123456qwe
+
+Lombok
+Axure  原型设计工具
+
+易文档：
+账号  775170427@qq.com   123qwe
+ysp:
+链接：
+https://easydoc.xyz/#/s/75757671      
+密码：y43Ep3Eb
+ysp:
+链接：
+https://easydoc.xyz/#/s/33435976      
+密码：O9BgESm5
+
+
+version账户：
+http://47.110.134.252:18080/svn/net.lvnao
+zhubingbing
+ZHUbingbing123
+
+
+项目原型地址 ：
+ https://org.modao.cc/app/2f4f2e7e8d5321244546bb702844099cc0c44557
+
+房安安 原型地址：https://next.modao.cc/app/4n4v9k2h4igk24fv2ezrh1x7vfyfpb#screen=sk24fv2jnr5dvqr5o
+验房无忧 蓝湖 地址：
+ https://lanhuapp.com/web/#/item/project/board?pid=870e1c8f-5ce9-4c8b-847c-3d37170164d2
+775170427@qq.com
+123qwe
+
+
+房安安数据库测试服
+47.111.22.92
+root
+kangerwO8888
+faa_dev 开发环境
+faa_test 测试环境
+
+
+maven仓库地址：
+http://47.110.134.252:3366/
+账号： admin
+密码： kangerwO888888
+
+
+oa系统
+http://www.jingoal.com/index.html
+帐户：
+15555158337
+密码：
+zhubingbing123
+
+
+#房安安预发服务器
+地址：47.111.22.92
+账户：root
+密码：kangerwO8888
+
+#房安安生产环境服务器
+地址：47.110.134.252
+账户：root
+密码：kangerwO8888
+
+  
+  ZHUbingbing123
