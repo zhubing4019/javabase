@@ -144,7 +144,16 @@ public class ListTest {
 
         DelayQueue delayQueue = new DelayQueue();
 
+        /**
+         * 使用小根堆实现
+         */
         PriorityQueue priorityQueue = new PriorityQueue();
+
+        /**
+         * 使用无锁模式实现： lock free
+         * while + cas
+         *
+         */
         ConcurrentLinkedQueue concurrentLinkedQueue = new ConcurrentLinkedQueue();
         concurrentLinkedQueue.offer(1);
 
